@@ -59,9 +59,9 @@ public class ControlFlowExercises {
 
 
     //Write a program that prints the numbers from 1 to 100.
-    //For multiples of three: print “Fizz” instead of the number.
-    //For the multiples of five: print “Buzz”.
-    //For numbers which are multiples of both three and five: print “FizzBuzz”.
+        //For multiples of three: print “Fizz” instead of the number.
+        //For the multiples of five: print “Buzz”.
+        //For numbers which are multiples of both three and five: print “FizzBuzz”.
     public static void fizzBuzz(){
         for(int i = 1; i <= 100; i++){
 
@@ -81,10 +81,10 @@ public class ControlFlowExercises {
     }
 
     //Display a table of powers.
-    //Prompt the user to enter an integer.
-    //Display a table of squares and cubes from 1 to the value entered.
-    //Assume that the user will enter valid data.
-    //Ask if the user wants to continue && only continue if user agrees to
+        //Prompt the user to enter an integer.
+        //Display a table of squares and cubes from 1 to the value entered.
+        //Assume that the user will enter valid data.
+        //Ask if the user wants to continue && only continue if user agrees to
     public static void powersTable(){
 
         Scanner scanner = new Scanner(System.in);
@@ -103,16 +103,61 @@ public class ControlFlowExercises {
         if(keepGoing.equals("yes")){
             powersTable();
         }
+        else {
+            System.out.println("Goodbye");
+        }
+    }
 
-        System.out.println("Goodbye");
+
+    //Convert given number grades into letter grades.
+        //Prompt the user for a numerical grade from 0 to 100.
+        //Display the corresponding letter grade.
+        //Prompt the user to continue.
+        //Assume that the user will enter valid integers for the grades.
+        //The application should only continue if the user agrees to.
+        //Grade Ranges:
+            //A : 100 - 88
+            //B : 87 - 80
+            //C : 79 - 67
+            //D : 66 - 60
+            //F : 59 - 0
+    public static void grades(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter numeric grade:");
+
+        int numberGrade = scanner.nextInt();
+
+        if (numberGrade >= 88){
+            System.out.println("Letter Grade: A");
+        }
+        else if(numberGrade >= 80){
+            System.out.println("Letter Grade: B");
+        }
+        else if(numberGrade >= 67){
+            System.out.println("Letter Grade: C");
+        }
+        else if(numberGrade >= 60){
+            System.out.println("Letter Grade: D");
+        }
+        else {
+            System.out.println("Letter Grade: F");
+        }
+
+        System.out.println("Do you have more grades to input? (yes/no)");
+        String keepGoing = scanner.next();
+
+        if (keepGoing.equals("yes")){
+            grades();
+        }
+        else{
+            System.out.println("Goodbye");
+        }
     }
 
     public static void main(String[] args) {
         loopBasics();
         fizzBuzz();
         powersTable();
+        grades();
     }
-
-
-
 }
