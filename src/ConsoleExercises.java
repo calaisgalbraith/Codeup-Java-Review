@@ -33,7 +33,27 @@ public class ConsoleExercises {
         System.out.println(sentence);
 
 
+        //--------------------
+        //Prompt the user to enter values of length and width of a classroom at Codeup (or your room if virtual).
+        System.out.println("Enter Length: ");
+        int length = Integer.parseInt(scanner.nextLine());
 
+        System.out.println("Enter Width: ");
+        int width = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Enter Height: ");
+        int height = Integer.parseInt(scanner.nextLine());
+
+        //Display the area and perimeter of that classroom.
+        int area = length * width;
+        System.out.println("Area: " + area);
+
+        int perimeter = (2 * length) + (2 * width);
+        System.out.println("Perimeter: " + perimeter);
+
+        //Calculate the volume of the rooms in addition to the area and perimeter.
+        int volume = area * height;
+        System.out.println("Volume: " + volume);
 
     }
 
