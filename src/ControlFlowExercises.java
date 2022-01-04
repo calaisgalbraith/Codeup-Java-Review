@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ControlFlowExercises {
 
 
@@ -78,9 +80,28 @@ public class ControlFlowExercises {
         }
     }
 
+    //Display a table of powers.
+    //Prompt the user to enter an integer.
+    //Display a table of squares and cubes from 1 to the value entered.
+    //Assume that the user will enter valid data.
+    //Ask if the user wants to continue && only continue if user agrees to
+    public static void powersTable(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What number would you like to go up to?");
+
+        int input = scanner.nextInt();
+
+
+
+        System.out.println("Do you want to continue? (y/n)");
+
+
+    }
+
     public static void main(String[] args) {
         loopBasics();
         fizzBuzz();
+        powersTable();
 
 
 
