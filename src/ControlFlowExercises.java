@@ -86,25 +86,31 @@ public class ControlFlowExercises {
     //Assume that the user will enter valid data.
     //Ask if the user wants to continue && only continue if user agrees to
     public static void powersTable(){
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("What number would you like to go up to?");
 
         int input = scanner.nextInt();
 
+        System.out.println("Here is your table!\n");
+        System.out.println("Number: " + input);
+        System.out.println("Squared: " + (input * input));
+        System.out.println("Cubed: " + (input * input * input) + "\n");
 
+        System.out.println("Do you want to continue? (yes/no)");
+        String keepGoing = scanner.next();
 
-        System.out.println("Do you want to continue? (y/n)");
+        if(keepGoing.equals("yes")){
+            powersTable();
+        }
 
-
+        System.out.println("Goodbye");
     }
 
     public static void main(String[] args) {
         loopBasics();
         fizzBuzz();
         powersTable();
-
-
-
     }
 
 
