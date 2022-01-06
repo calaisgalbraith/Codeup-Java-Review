@@ -3,10 +3,46 @@ import java.util.Scanner;
 public class MethodsExercise {
 
 
+    //------------------------------------
+    //Create an application that simulates dice rolling.
+        //Ask the user to enter the number of sides for a pair of dice & prompt the user to roll the dice.
+        //"Roll" two n-sided dice, display the results of each, and then ask the user if they want to roll the dice again.
+        //Use static methods to implement the method(s) that generate the random numbers.
+        //Use the .random method of the java.lang.Math class to generate random numbers.
 
+    public static void getDiceSides(){ //method to roll dice
+        Scanner scanner = new Scanner(System.in);
+        boolean keepGoing = true; //boolean value to see if user wants to continue/keep going
 
+        System.out.println("Enter the number of sides for a pair of dice: "); //prompt for number of sides of dice
+        int sides = Integer.parseInt(scanner.nextLine());
 
+        while(keepGoing){
+            System.out.println("Roll the dice! (Press any key)"); //prompt user to roll dice
+            String roll = scanner.nextLine();
 
+            rollDice(sides); //roll dice
+
+            System.out.println("Do you want to roll again? (yes/no)");
+            String answer = scanner.nextLine();
+
+            if(answer.equals("no")){
+                keepGoing = false; //if user does not want to continue, loop keeps going
+            }
+        }
+        System.out.println("Goodbye!");
+
+    }
+
+    public static void rollDice(int max){ //get and print the numbers for a roll
+        int firstRoll = (int)(Math.random() * max + 1);
+        int secondRoll = (int)(Math.random() * max + 1);
+
+        System.out.println("First roll: " + firstRoll);
+        System.out.println("Second roll: " + secondRoll);
+        System.out.println("Total Roll: " + (firstRoll + secondRoll));
+
+    }
 
     //------------------------------------
     //Calculate the factorial of a number.
@@ -81,6 +117,7 @@ public class MethodsExercise {
 
     public static void main(String[] args) {
 //        System.out.println(getInteger(1, 10));
-        factorial();
+//        factorial();
+        getDiceSides();
     }
 }
