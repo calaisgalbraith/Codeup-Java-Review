@@ -24,18 +24,14 @@ public class Input {
 
     //return true if user enters y, yes, or variants, no if otherwise
     public boolean yesNo(){
-        String userInput = sc.nextLine();
-        userInput.toLowerCase(); //make lowercase for standardization
-
+        String userInput = (sc.nextLine()).toLowerCase(); //make lowercase for standardization
         return userInput.contains("y");
     }
 
     //return true if user enters y, yes, or variants, no if otherwise w/ prompt
     public boolean yesNo(String prompt){
         System.out.println(prompt);
-        String userInput = sc.nextLine();
-        userInput.toLowerCase(); //make lowercase for standardization
-
+        String userInput = (sc.nextLine()).toLowerCase(); //make lowercase for standardization
         return userInput.contains("y");
     }
 
