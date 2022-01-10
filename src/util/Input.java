@@ -67,7 +67,6 @@ public class Input {
 
     //gets and validates that user input is within certain range (min-max)
     public int getInt(String prompt, int min, int max){
-
         System.out.println(prompt);
         return getInt(min, max);
     }
