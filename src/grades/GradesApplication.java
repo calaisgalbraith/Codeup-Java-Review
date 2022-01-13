@@ -26,11 +26,11 @@ public class GradesApplication {
         }
 
         //get user choice
-        String choice = input.getString("What student would you like to see more information on?");
+        String choice = input.getString("\n\nWhat student would you like to see more information on?");
 
         //check if username is present in hashmap
-        if(students.containsKey(choice)){
-
+        if(students.containsKey(choice)){ //if so, call displayGrades method with choice
+            displayGrades(students.get(choice), choice);
         }
         else{
             System.out.println("Sorry, no student found with the Github username of \"" + choice + "\"");
@@ -46,8 +46,9 @@ public class GradesApplication {
     }
 
     //method to display grade information
-    public static void displayGrades(){
-
+    public static void displayGrades(Student student, String username){
+        System.out.println("\nName: " + student.getName() + " - Github Username: " + username);
+        System.out.println("Current Average: " + student.getGradeAverage() + "\n");
     }
 
     //method to see if want to continue or not
@@ -80,7 +81,7 @@ public class GradesApplication {
         zulu.addGrade(96);
 
         students.put("BarkingRat", chanel);
-        students.put("FlufflyLady", jubilee);
+        students.put("FluffyLady", jubilee);
         students.put("LittleTerror", nala);
         students.put("PublicMenace", zulu);
 

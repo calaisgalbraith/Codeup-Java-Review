@@ -32,7 +32,11 @@ public class Student {
         for(int grade : grades){
             average += grade;
         }
-        return average / grades.size();
+
+        average = average / grades.size();
+
+        //round to two decimal places
+        return Math.round(average*100.0)/100.0;
     }
 
     public static void main(String[] args) {
