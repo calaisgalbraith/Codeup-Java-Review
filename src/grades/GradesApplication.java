@@ -1,5 +1,8 @@
 package grades;
+import util.Input;
+
 import java.util.HashMap;
+import java.util.Scanner;
 
 //Create a class named GradesApplication with a main method.
 // Inside the main method, create a HashMap named students.
@@ -9,16 +12,48 @@ import java.util.HashMap;
 
 public class GradesApplication {
 
-    //method to displayGrades
-    public static void displayGrades(HashMap<String, Student> students){
+    private static Input input = new Input();
 
+    //method to display & get choice
+    public static void displayChoice(HashMap<String, Student> students){
 
+        System.out.println("Welcome!\n\n" +
+                "Here are the Github usernames of our students:\n");
 
+        //print all usernames of students
+        for(String username : students.keySet()){
+            System.out.print("|" + username + "|  ");
+        }
 
+        //get user choice
+        String choice = input.getString("What student would you like to see more information on?");
+
+        //check if username is present in hashmap
+        if(students.containsKey(choice)){
+
+        }
+        else{
+            System.out.println("Sorry, no student found with the Github username of \"" + choice + "\"");
+        }
+
+        //call method to see if want to continue or not
+        if(keepGoing()){
+            displayChoice(students);
+        }
+        else {
+            System.out.println("Ending method, goodbye!");
+        }
+    }
+
+    //method to display grade information
+    public static void displayGrades(){
 
     }
 
-    //method to get user
+    //method to see if want to continue or not
+    public static boolean keepGoing(){
+        return input.yesNo("Would you like to see another student?");
+    }
 
     public static void main(String[] args) {
 
@@ -49,6 +84,6 @@ public class GradesApplication {
         students.put("LittleTerror", nala);
         students.put("PublicMenace", zulu);
 
-        displayGrades(students);
+        displayChoice(students);
     }
 }
