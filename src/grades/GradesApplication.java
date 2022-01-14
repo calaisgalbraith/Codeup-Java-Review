@@ -108,7 +108,8 @@ public class GradesApplication {
             System.out.print(grade + " ");
         }
 
-        System.out.println("\nCurrent Average: " + student.getGradeAverage() + "\n");
+        System.out.println("\nCurrent Average: " + student.getGradeAverage());
+        System.out.println("\nAttendance Average: " + student.getAttendanceAverage() + "\n");
     }
 
     public static void main(String[] args) {
@@ -119,21 +120,29 @@ public class GradesApplication {
         chanel.addGrade(75);
         chanel.addGrade(80);
         chanel.addGrade(70);
+        chanel.recordAttendance("2022-01-24", "P");
+        chanel.recordAttendance("2022-01-24", "A");
 
         Student jubilee = new Student("Jubilee");
         jubilee.addGrade(90);
         jubilee.addGrade(95);
         jubilee.addGrade(94);
+        jubilee.recordAttendance("2022-01-24", "P");
+        jubilee.recordAttendance("2022-01-24", "P");
 
         Student nala = new Student("Nala");
         nala.addGrade(80);
         nala.addGrade(85);
         nala.addGrade(86);
+        nala.recordAttendance("2022-01-24", "A");
+        nala.recordAttendance("2022-01-24", "A");
 
         Student zulu = new Student("Zulu");
         zulu.addGrade(100);
         zulu.addGrade(95);
         zulu.addGrade(96);
+        zulu.recordAttendance("2022-01-24", "P");
+        zulu.recordAttendance("2022-01-24", "A");
 
         students.put("barkingRat", chanel);
         students.put("fluffyLady", jubilee);
