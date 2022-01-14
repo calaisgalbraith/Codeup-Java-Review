@@ -7,15 +7,18 @@ package grades;
     // and initializes the grades property as an empty ArrayList.
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Student {
 
     private String name;
     private ArrayList<Integer> grades;
+    private HashMap<String, String> attendance;
 
     public Student(String name) {
         this.name = name;
         this.grades = new ArrayList<>();
+        this.attendance = new HashMap<>();
     }
 
     public String getName(){
@@ -24,6 +27,36 @@ public class Student {
 
     public void addGrade(int grade){
         grades.add(grade);
+    }
+
+    public void recordAttendance(String date, String value){
+
+        //confirm that value is "A" or "P"
+        if(value.equals("A") || value.equals("P")){
+            attendance.put(date, value);
+        }
+        else{
+            System.out.println("Not a Valid Entry.");
+        }
+    }
+
+    public double getAttendanceAverage(){
+        //(Total Days - Absences) / Total Days.
+        double absentDays = 0;
+
+        for(String attendance : attendance.values()){//tally up all absent dates
+            if(attendance.equals("A")){
+                absentDays++;
+            }
+        }
+
+        double average = (attendance.size() - absentDays) / attendance.size();
+
+        return Math.round(average*100.0)/100.0;
+    }
+
+    public HashMap<String, String> getAttendance() {
+        return attendance;
     }
 
     public ArrayList<Integer> getGrades(){
