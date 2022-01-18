@@ -37,65 +37,160 @@ public class Input {
 
     //get int from user
     public int getInt(){
-        return sc.nextInt();
+        int number;
+
+        try{
+            number = Integer.parseInt(sc.nextLine());
+            return number;
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid integer");
+            return getInt();
+        }
     }
 
     //get int from user w/ prompt
     public int getInt(String prompt){
         System.out.println(prompt);
-        return sc.nextInt();
+
+        int number;
+        try{
+            number = Integer.parseInt(sc.nextLine());
+            return number;
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid integer");
+            return getInt(prompt);
+        }
     }
 
     //gets and validates that user input is within certain range (min-max)
     public int getInt(int min, int max){
+        int number;
+        try{
+            number = Integer.parseInt(sc.nextLine());
 
-        int userInput = sc.nextInt();
-
-        if(userInput > max || userInput < min){ //if number is not in range, show err message & recall method
-            System.out.println("Error! Number is not within given range");
-            System.out.println("Please enter a number between " + min + " and " + max);
+            if(number > max || number < min){
+                System.out.println("Error! Number is not within given range");
+                System.out.println("Please enter a number between " + min + " and " + max);
+                return getInt(min, max);
+            }
+            else{
+                return number;
+            }
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid integer");
             return getInt(min, max);
-        }
-        else{
-            return userInput;
         }
     }
 
     //gets and validates that user input is within certain range (min-max)
     public int getInt(String prompt, int min, int max){
         System.out.println(prompt);
-        return getInt(min, max);
+
+        int number;
+        try{
+            number = Integer.parseInt(sc.nextLine());
+
+            if(number > max || number < min){
+                System.out.println("Error! Number is not within given range");
+                System.out.println("Please enter a number between " + min + " and " + max);
+                return getInt(prompt, min, max);
+            }
+            else{
+                return number;
+            }
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid integer");
+            return getInt(prompt, min, max);
+        }
     }
 
     //get double from user
     public double getDouble(){
-        return sc.nextDouble();
+        double number;
+        try{
+            number = Double.parseDouble(sc.nextLine());
+            return number;
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid double");
+            return getDouble();
+        }
     }
 
     //get double from user w/ prompt
     public double getDouble(String prompt){
         System.out.println(prompt);
-        return sc.nextDouble();
+        double number;
+
+        try{
+            number = Double.parseDouble(sc.nextLine());
+            return number;
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid double");
+            return getDouble();
+        }
     }
 
     //gets and validates that user input is within certain range (min-max)
     public double getDouble(double min, double max){
 
-        double userInput = sc.nextDouble();
+        double number;
+        try{
+            number = Double.parseDouble(sc.nextLine());
 
-        if(userInput > max || userInput < min){ //if number is not in range, show err message & recall method
-            System.out.println("Error! Number is not within given range");
-            System.out.println("Please enter a number between " + min + " and " + max);
+            if(number > max || number < min){
+                System.out.println("Error! Number is not within given range");
+                System.out.println("Please enter a number between " + min + " and " + max);
+                return getDouble(min, max);
+            }
+            else{
+                return number;
+            }
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid double");
             return getDouble(min, max);
-        }
-        else{
-            return userInput;
         }
     }
 
     //gets and validates that user input is within certain range (min-max) w/ prompt
     public double getDouble(String prompt, double min, double max){
         System.out.println(prompt);
-        return getDouble(min, max);
+
+        double number;
+        try{
+            number = Double.parseDouble(sc.nextLine());
+
+            if(number > max || number < min){
+                System.out.println("Error! Number is not within given range");
+                System.out.println("Please enter a number between " + min + " and " + max);
+                return getDouble(prompt, min, max);
+            }
+            else{
+                return number;
+            }
+        }catch (Exception e){
+            System.out.println("Error! Input is not a valid double");
+            return getDouble(prompt, min, max);
+        }
+    }
+
+    //gets and validates user input for binary
+    public int getBinary(){
+        try{
+            return Integer.valueOf(getString(), 2);
+        } catch(NumberFormatException e){
+            System.out.println("Error: Input is not a number!");
+            return getBinary();
+        }
+    }
+
+
+    //gets and validates user input for hexadecimal
+    public int getHex(){
+        try{
+            return Integer.valueOf(getString(), 16);
+        } catch (NumberFormatException e){
+            System.out.println("Error: Input is not a number!");
+            return getHex();
+        }
     }
 }
